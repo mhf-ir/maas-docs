@@ -34,6 +34,16 @@ MAAS manages its proxy. So although the active configuration, located in file
 The proxy must be installed on the same host as the region controller (via the
 'maas-proxy' package).
 
+### Forward to another proxy server
+
+If you want to forward this proxy to antoher proxy server you can append these lines into: `/var/lib/maas/maas-proxy.conf`
+
+```txt
+cache_peer <MainProxyServerAddress> parent <Port> 0 no-query default
+acl all src all
+http_access allow all
+never_direct allow all
+```
 
 ## Configure proxy
 
